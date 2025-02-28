@@ -58,6 +58,12 @@ class Vector {
         bool operator == (Vector const &v) const;
         bool operator != (Vector const &v) const;
 
+        /** Specials operations */
+        double dot(Vector const &v) const;
+        double magnitude() const;
+        void normalize();
+
+
     private:
         double x, y, z;
 };

@@ -185,3 +185,20 @@ bool Vector::operator == (Vector const &v) const {
 bool Vector::operator != (Vector const &v) const {
     return this->x != v.x || this->y != v.y || this->z != v.z;
 }
+
+double Vector::dot(Vector const &v) const {
+    return this->x * v.x + this->y * v.y + this->z * v.z;
+}
+
+double Vector::magnitude() const {
+    return std::sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+}
+
+void Vector::normalize() {
+    double mag = this->magnitude();
+    if (mag > 0) {
+        this->x /= mag;
+        this->y /= mag;
+        this->z /= mag;
+    }
+}
