@@ -1,12 +1,18 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 project(softsim)
 
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(softsim
-    src/main.cpp
-)
+# Add include directories (for headers)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-target_include_directories(softsim PRIVATE include)
-# target_link_libraries(softsim some_external_library)
+# Create a library for math functions (vector.cpp)
+add_library(math_lib src/math/vector.cpp)
+
+# Create the main executable
+add_executable(softsim src/main.cpp)
+
+# Link the math library to the main executable
+target_link_libraries(softsim PRIVATE math_lib)
