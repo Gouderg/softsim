@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         run: |
-          ./tests
+          ./unittest
 
       - name: Clean up
         run: |
