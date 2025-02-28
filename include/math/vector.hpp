@@ -8,7 +8,6 @@
 class Vector {
 
     public:
-        Vector(){}
         Vector(const double x = 0, const double y = 0, const double z = 0);
 
         // Getter.

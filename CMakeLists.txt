@@ -11,8 +11,10 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 # Create a library for math functions (vector.cpp)
 add_library(math_lib src/math/vector.cpp)
 
+file(GLOB CORE_SOURCES src/core/*.cpp)
+
 # Create the main executable
-add_executable(softsim src/main.cpp)
+add_executable(softsim src/main.cpp ${CORE_SOURCES})
 
 # Link the math library to the main executable
 target_link_libraries(softsim PRIVATE math_lib)

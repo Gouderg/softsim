@@ -1,27 +1,15 @@
 #include <iostream>
 
-#include "math/vector.hpp"
+#include "core/point.hpp"
+
 
 int main(int argc, char const *argv[])
-{
-    std::cout << "Hello World." << std::endl;
+{   
+    Point p = Point();
 
-    Vector v = Vector(1, 45, 3);
-    Vector v2 = Vector(1, 2, 3);
-
-
-    std::cout << v / v2 << std::endl;
-    std::cout << v / 34 << std::endl;
-    std::cout << 12 / v2 << std::endl;
-    
-    v /= v2;
-    v /= v2;
-    v /= v2;
-    v /= v2;
-    std::cout << v << std::endl;
-    
-    v += 12;
-    std::cout << v << std::endl;
-
+    for (int i = 0; i < 100; i += 1) {
+        p.update(0.01);
+        std::cout << p << std::endl;
+    }
     return 0;
 }
