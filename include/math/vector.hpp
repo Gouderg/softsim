@@ -23,9 +23,15 @@ class Vector {
         // Cout.
         friend std::ostream& operator <<(std::ostream&, const Vector&);
 
+        /** Basics operations */
+        Vector operator + (Vector const &v) const;
+        Vector operator + (double const &n) const;
+        friend Vector operator + (const double &n, Vector const &v);
+        void operator += (Vector const &v);
+        void operator += (double const &n);
+
     private:
         double x, y, z;
-
 };
 
 
