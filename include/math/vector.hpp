@@ -25,29 +25,38 @@ class Vector {
         friend std::ostream& operator <<(std::ostream&, const Vector&);
 
         /** Basics operations */
+
+        // Addition.
         Vector operator + (Vector const &v) const;
         Vector operator + (double const &n) const;
         friend Vector operator + (const double &n, Vector const &v);
         void operator += (Vector const &v);
         void operator += (double const &n);
 
+        // Subtraction.
         Vector operator - (Vector const &v) const;
         Vector operator - (double const &n) const;
         friend Vector operator - (const double &n, Vector const &v);
         void operator -= (Vector const &v);
         void operator -= (double const &n);
 
+        // Multiplication.
         Vector operator * (Vector const &v) const;
         Vector operator * (double const &n) const;
         friend Vector operator * (const double &n, Vector const &v);
         void operator *= (Vector const &v);
         void operator *= (double const &n);
 
+        // Division.
         Vector operator / (Vector const &v) const;
         Vector operator / (double const &n) const;
         friend Vector operator / (const double &n, Vector const &v);
         void operator /= (Vector const &v);
         void operator /= (double const &n);
+
+        // Comparison.
+        bool operator == (Vector const &v) const;
+        bool operator != (Vector const &v) const;
 
     private:
         double x, y, z;

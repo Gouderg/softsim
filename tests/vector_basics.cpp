@@ -166,3 +166,15 @@ TEST_CASE("Vector division operator", "[operator/=]") {
         REQUIRE_THROWS_AS(v /= 0.0, std::invalid_argument);
     }
 }
+
+TEST_CASE("Vector comparison operator", "[comparison]") {
+
+    Vector v1 = Vector(1, 2, 3);
+    Vector v2 = Vector(1, 2, 0);
+    Vector v3 = Vector(1, 2);
+
+    REQUIRE_FALSE(v1 == v2);
+    REQUIRE(v1 != v2);
+    REQUIRE_FALSE(v3 == v1);
+    REQUIRE(v3 == v2);
+}

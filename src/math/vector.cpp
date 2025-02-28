@@ -176,3 +176,12 @@ void Vector::operator /= (double const &n) {
     this->y /= n;        
     this->z /= n;
 }
+
+// Comparison.
+bool Vector::operator == (Vector const &v) const {
+    return this->x == v.x && this->y == v.y && this->z == v.z;
+}
+
+bool Vector::operator != (Vector const &v) const {
+    return this->x != v.x || this->y != v.y || this->z != v.z;
+}
