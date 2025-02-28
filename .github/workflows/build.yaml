@@ -1,0 +1,42 @@
+name: CMake Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up CMake
+        uses: actions/setup-cmake@v2
+        with:
+          cmake-version: "3.28"
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y g++ make
+
+      - name: Configure with CMake
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+
+      - name: Build project with CMake
+        run: |
+          cd build
+          cmake --build .
+
+      - name: Clean up
+        run: |
+          rm -rf build
