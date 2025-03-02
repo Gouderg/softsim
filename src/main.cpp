@@ -1,15 +1,14 @@
-#include <iostream>
+#include <SFML/Graphics.hpp>
+#include <cstdio>
 
-#include "core/point.hpp"
+#include "gui/Window.hpp"
 
 
 int main(int argc, char const *argv[])
 {   
-    Point p = Point();
+    Window gui = Window();
 
-    for (int i = 0; i < 100; i += 1) {
-        p.update(0.01);
-        std::cout << p << std::endl;
-    }
+    gui.run();
+
     return 0;
 }
